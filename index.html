@@ -13,7 +13,7 @@ h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.15rem;margin:34px 0 10px}
 .cmp{margin:18px 0 26px}.wrap{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:#000;aspect-ratio:2/1}
 .wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .wrap .a{position:absolute;top:0;left:0;bottom:0;overflow:hidden;border-right:3px solid #fff;box-shadow:2px 0 6px rgba(0,0,0,.4)}
-.wrap .a img{width:auto;min-width:100%;height:100%}
+.wrap .a img{height:100%;object-fit:cover}
 .wrap input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
 .lab{position:absolute;bottom:10px;background:rgba(0,0,0,.65);color:#fff;font-size:.78rem;padding:3px 8px;border-radius:6px}.lab.l{left:10px}.lab.r{right:10px}
 figcaption{font-size:.82rem;color:var(--mut);margin-top:6px}
@@ -63,5 +63,5 @@ footer{color:var(--mut);font-size:.8rem;padding:30px 16px}
 <div class="note"><b>Jak wgrac samodzielnie:</b> nazwy plikow sa identyczne z tymi na serwerze, wiec zestaw A mozna podmienic 1:1 w katalogu wp-content/uploads (albo wgrac przez Media w WordPressie i podpiac w sliderze). Zestaw B daje najwiekszy zysk na telefonach - najlepiej podpiac go jako wersje mobilna (srcset) albo zlecic mi: podmiana + srcset + WebP z fallbackiem to jednorazowa praca, wycena po Panskiej decyzji.</div>
 </div>
 <footer class="in">Oryginalne zdjecia sa wlasnoscia WAKO. Porownanie przygotowane na prosbe wlasciciela 16.09.2026. Lukasz Stasiak Uslugi Edukacyjne, 21-030 Motycz 76D, NIP 713-31-03-234. tel. 888 316 564, lukasz@bibliotekanaukowa.pl</footer>
-<script>document.querySelectorAll('.cmp').forEach(function(f){var a=f.querySelector('.a'),i=f.querySelector('input');i.addEventListener('input',function(){a.style.width=i.value+'%'})})</script>
+<script>function fit(){document.querySelectorAll('.cmp').forEach(function(f){var w=f.querySelector('.wrap');f.querySelector('.a img').style.width=w.clientWidth+'px'})}document.querySelectorAll('.cmp').forEach(function(f){var a=f.querySelector('.a'),i=f.querySelector('input');i.addEventListener('input',function(){a.style.width=i.value+'%'})});window.addEventListener('resize',fit);window.addEventListener('load',fit);fit();</script>
 </body></html>
