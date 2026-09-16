@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>wakodomy.pl - porownanie zdjec przed i po kompresji</title>
+<style>
+:root{--ink:#1c1a17;--mut:#6b655c;--acc:#7a4a12;--bg:#faf7f2;--line:#e6dfd3}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+header{background:#fff;border-bottom:1px solid var(--line);padding:22px 0}
+.in{max-width:1080px;margin:0 auto;padding:0 16px}
+h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.15rem;margin:34px 0 10px}
+.tag{display:inline-block;background:#fff3d6;color:var(--acc);border:1px solid #efd9a8;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:600;margin-bottom:8px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:18px 0}
+.kpi div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:1.5rem;color:var(--acc)}.kpi span{color:var(--mut);font-size:.85rem}
+.cmp{margin:18px 0 26px}.wrap{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:#000;aspect-ratio:2/1}
+.wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.wrap .a{position:absolute;top:0;left:0;bottom:0;overflow:hidden;border-right:3px solid #fff;box-shadow:2px 0 6px rgba(0,0,0,.4)}
+.wrap .a img{width:auto;min-width:100%;height:100%}
+.wrap input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.lab{position:absolute;bottom:10px;background:rgba(0,0,0,.65);color:#fff;font-size:.78rem;padding:3px 8px;border-radius:6px}.lab.l{left:10px}.lab.r{right:10px}
+figcaption{font-size:.82rem;color:var(--mut);margin-top:6px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:.85rem}th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f3ede3;font-weight:600}
+.dl a{display:inline-block;margin:6px 8px 6px 0;padding:10px 16px;background:var(--acc);color:#fff;text-decoration:none;border-radius:8px;font-weight:600}
+.note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--acc);padding:12px 16px;border-radius:8px;margin:14px 0}
+footer{color:var(--mut);font-size:.8rem;padding:30px 16px}
+@media(max-width:600px){.wrap{aspect-ratio:3/2}}
+</style></head><body>
+<header><div class="in"><span class="tag">wersja robocza - porownanie</span><h1>wakodomy.pl - zdjecia strony glownej przed i po kompresji</h1>
+<div style="color:var(--mut)">Przygotowal: inz. Lukasz Stasiak, 16.09.2026. Te same zdjecia, ten sam uklad strony - zmienia sie tylko waga plikow.</div></div></header>
+<div class="in">
+<div class="kpi">
+<div><b>4,8 MB</b><span>24 zdjecia strony glownej dzis (zmierzone 16.09.2026)</span></div>
+<div><b>3,6 MB</b><span>zestaw A: ten sam rozmiar w pikselach, zoptymalizowany JPEG (-25%)</span></div>
+<div><b>1,6 MB</b><span>zestaw B: wersja na telefon, 960 px szerokosci (-67%)</span></div>
+<div><b>1,3 MB</b><span>zestaw B w formacie WebP (-72%)</span></div>
+</div>
+<div class="note">Co to znaczy w praktyce: przy LTE poza miastem (ok. 8 Mb/s, czyli 1 MB na sekunde) same zdjecia strony glownej pobieraja sie dzis ok. 4,8 s; po zamianie na zestaw B ok. 1,6 s, w WebP ok. 1,3 s. To wyliczenie z rozmiarow plikow, nie pomiar na konkretnym telefonie.</div>
+
+<h2>Suwak przed / po (4 najwieksze zdjecia)</h2>
+<p style="color:var(--mut)">Przesun suwak w lewo i w prawo. Po prawej jest wersja "na telefon" - najmocniej zmniejszona, wiec jesli tu nie widac roznicy, w zestawie A tym bardziej jej nie bedzie.</p>
+
+<figure class="cmp">
+  <div class="wrap"><img class="b" src="B_telefon_960/wako-domyzbali-wagrowiec.jpg" alt="po"><div class="a" style="width:50%"><img src="przed/wako-domyzbali-wagrowiec.jpg" alt="przed"></div><input type="range" min="0" max="100" value="50" aria-label="suwak przed/po"><div class="lab l">PRZED 642 KB</div><div class="lab r">PO 156 KB (telefon)</div></div>
+  <figcaption>wako-domyzbali-wagrowiec.jpg - 1920x960 px, na telefon 960x480 px. Lewa strona suwaka: oryginal, prawa: po kompresji.</figcaption>
+</figure>
+<figure class="cmp">
+  <div class="wrap"><img class="b" src="B_telefon_960/bozena-dom-panorama-2-slider.jpg" alt="po"><div class="a" style="width:50%"><img src="przed/bozena-dom-panorama-2-slider.jpg" alt="przed"></div><input type="range" min="0" max="100" value="50" aria-label="suwak przed/po"><div class="lab l">PRZED 640 KB</div><div class="lab r">PO 98 KB (telefon)</div></div>
+  <figcaption>bozena-dom-panorama-2-slider.jpg - 1920x960 px, na telefon 960x480 px. Lewa strona suwaka: oryginal, prawa: po kompresji.</figcaption>
+</figure>
+<figure class="cmp">
+  <div class="wrap"><img class="b" src="B_telefon_960/wako-domzbali-gardeja.jpg" alt="po"><div class="a" style="width:50%"><img src="przed/wako-domzbali-gardeja.jpg" alt="przed"></div><input type="range" min="0" max="100" value="50" aria-label="suwak przed/po"><div class="lab l">PRZED 569 KB</div><div class="lab r">PO 130 KB (telefon)</div></div>
+  <figcaption>wako-domzbali-gardeja.jpg - 1920x1241 px, na telefon 960x620 px. Lewa strona suwaka: oryginal, prawa: po kompresji.</figcaption>
+</figure>
+<figure class="cmp">
+  <div class="wrap"><img class="b" src="B_telefon_960/wako-garazezbali.jpg" alt="po"><div class="a" style="width:50%"><img src="przed/wako-garazezbali.jpg" alt="przed"></div><input type="range" min="0" max="100" value="50" aria-label="suwak przed/po"><div class="lab l">PRZED 448 KB</div><div class="lab r">PO 104 KB (telefon)</div></div>
+  <figcaption>wako-garazezbali.jpg - 1920x960 px, na telefon 960x480 px. Lewa strona suwaka: oryginal, prawa: po kompresji.</figcaption>
+</figure>
+
+<h2>Wszystkie pliki (KB)</h2>
+<div style="overflow-x:auto"><table><thead><tr><th>plik</th><th>wymiary</th><th>dzis</th><th>A pelny</th><th>B telefon</th><th>B WebP</th></tr></thead><tbody><tr><td>wako-domyzbali-wagrowiec.jpg</td><td>1920x960</td><td>642</td><td>551</td><td>156</td><td>160</td></tr><tr><td>bozena-dom-panorama-2-slider.jpg</td><td>1920x960</td><td>640</td><td>369</td><td>98</td><td>86</td></tr><tr><td>wako-domzbali-gardeja.jpg</td><td>1920x1241</td><td>569</td><td>432</td><td>130</td><td>115</td></tr><tr><td>wako-garazezbali.jpg</td><td>1920x960</td><td>448</td><td>377</td><td>104</td><td>95</td></tr><tr><td>wako-domyletniskowe-krag.jpg</td><td>1920x986</td><td>425</td><td>302</td><td>89</td><td>73</td></tr><tr><td>1.jpg</td><td>1500x1000</td><td>349</td><td>310</td><td>164</td><td>151</td></tr><tr><td>wako-domyzbaliprostokatnych-Piotr.jpg</td><td>2102x1051</td><td>349</td><td>278</td><td>73</td><td>54</td></tr><tr><td>Piotr180-10.jpg</td><td>1042x694</td><td>345</td><td>223</td><td>179</td><td>173</td></tr><tr><td>krag-6.jpg</td><td>1500x1001</td><td>227</td><td>198</td><td>94</td><td>71</td></tr><tr><td>Baltyk-1.jpg</td><td>1500x1000</td><td>210</td><td>210</td><td>110</td><td>89</td></tr><tr><td>MG_1624-H-800-3.jpg</td><td>500x321</td><td>149</td><td>47</td><td>47</td><td>45</td></tr><tr><td>dabrowa-800.jpg</td><td>500x321</td><td>120</td><td>41</td><td>41</td><td>35</td></tr><tr><td>zlocieniec-800-2.jpg</td><td>500x321</td><td>107</td><td>35</td><td>35</td><td>28</td></tr><tr><td>LOGO_WAKO-png2-1080x302.png</td><td>1080x302</td><td>75</td><td>75</td><td>75</td><td>27</td></tr><tr><td>LOGO_WAKO-png2-1024x286.png</td><td>1024x286</td><td>69</td><td>69</td><td>69</td><td>25</td></tr><tr><td>slide333.jpg</td><td>500x321</td><td>62</td><td>39</td><td>39</td><td>34</td></tr><tr><td>LOGO_WAKO-png2-768x215.png</td><td>768x215</td><td>44</td><td>44</td><td>44</td><td>19</td></tr><tr><td>LOGO_WAKO-png2.png</td><td>1187x332</td><td>23</td><td>23</td><td>23</td><td>19</td></tr><tr><td>MG_1624-H-800-3-300x193.jpg</td><td>300x193</td><td>18</td><td>18</td><td>18</td><td>15</td></tr><tr><td>dabrowa-800-300x193.jpg</td><td>300x193</td><td>18</td><td>17</td><td>17</td><td>13</td></tr><tr><td>slide333-300x193.jpg</td><td>300x193</td><td>17</td><td>16</td><td>16</td><td>13</td></tr><tr><td>zlocieniec-800-2-300x193.jpg</td><td>300x193</td><td>15</td><td>14</td><td>14</td><td>10</td></tr><tr><td>LOGO_WAKO-png2-300x84.png</td><td>300x84</td><td>11</td><td>11</td><td>11</td><td>6</td></tr><tr><td>cropped-LOGO_WAKO-png-192x192.png</td><td>192x192</td><td>6</td><td>6</td><td>6</td><td>4</td></tr></tbody>
+<tfoot><tr><th>razem</th><th></th><th>4937</th><th>3705</th><th>1651</th><th>1360</th></tr></tfoot></table></div>
+
+<h2>Pobranie</h2>
+<div class="dl"><a href="wako_A_pelny_rozmiar.zip">Zestaw A - pelny rozmiar (JPEG)</a><a href="wako_B_telefon_960.zip">Zestaw B - telefon 960 px (JPEG)</a><a href="wako_B_telefon_960_webp.zip">Zestaw B - WebP</a></div>
+<div class="note"><b>Jak wgrac samodzielnie:</b> nazwy plikow sa identyczne z tymi na serwerze, wiec zestaw A mozna podmienic 1:1 w katalogu wp-content/uploads (albo wgrac przez Media w WordPressie i podpiac w sliderze). Zestaw B daje najwiekszy zysk na telefonach - najlepiej podpiac go jako wersje mobilna (srcset) albo zlecic mi: podmiana + srcset + WebP z fallbackiem to jednorazowa praca, wycena po Panskiej decyzji.</div>
+</div>
+<footer class="in">Oryginalne zdjecia sa wlasnoscia WAKO. Porownanie przygotowane na prosbe wlasciciela 16.09.2026. Lukasz Stasiak Uslugi Edukacyjne, 21-030 Motycz 76D, NIP 713-31-03-234. tel. 888 316 564, lukasz@bibliotekanaukowa.pl</footer>
+<script>document.querySelectorAll('.cmp').forEach(function(f){var a=f.querySelector('.a'),i=f.querySelector('input');i.addEventListener('input',function(){a.style.width=i.value+'%'})})</script>
+</body></html>
